@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>
+{{ book[2] }}
+</h1>
+<p>
+    ISBN: {{ book[1] }}
+</p>
+<p>
+    Title: {{ book[2] }}
+</p>
+<p>
+    Author: {{ book[3] }}
+</p>
+<p>
+    Year: {{ book[4] }}
+</p>
+<p>
+    Num of rates: {{ num_of_rates }}
+</p>
+<p>
+    Avg rating: {{ avg_rating }}
+</p>
+
+{% if not current_user.is_anonymous and not restrict_submissions %}
+
+    <form method="post" action="{{ url_for('post_submission') }}">
+        {{ form.csrf_token }}
+        {{ form.submission() }}
+        {{ form.book_id(value=book[0]) }}
+        {{ form.rate }}
+        <input type="submit" value="Post">
+    </form>
+
+{% else %}
+    {% if not restrict_submissions %}
+    <p>
+        To post sumbissions you need to <a href="{{ url_for('login') }}">login</a>
+        or <a href="{{ url_for('register') }}">register</a>
+    </p>
+    {% else %}
+    <p style="color:red;">
+        You posted submission already
+    </p>
+    {% endif %}
+{% endif %}
+
+
+<h1>Submissions</h1>
+{% for submission in submissions %}
+    <p style="border-bottom: 1px solid black;">
+        <b>author:</b> {{ submission[1] }} <b>rate:</b> {{ submission[3] }}<br>
+        <b>text:</b> {{ submission[0] }} <br>
+    </p>
+{% endfor %}
+
+{% endblock %}

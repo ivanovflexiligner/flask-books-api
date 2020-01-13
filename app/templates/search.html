@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+    {{ form.search(size=100) }}
+    <input type="submit" value="search">
+</form>
+
+<hr>
+
+<p>
+    {% if searched %}
+    {{ count_books }}&nbsp;books found.<br>
+
+    {% for book in books %}
+    <a href="{{ url_for('book', id=book[0]) }}">{{ book[2] }}</a>
+    {% endfor %}
+
+    {% endif %}
+
+</p>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+flask
+flask-wtf
+flask-login
+sqlalchemy
+psycopg2
+requests
