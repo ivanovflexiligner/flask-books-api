@@ -1,21 +1,16 @@
-The application provides acces to it's own DB with books
+CS50 web development course project 1 implementation
 
-Data output format - json
+site about books with no design
 
-There is two methods:
+There is a:
 
-GET host/books/api/1.0/books - show all books from DB
-GET host/books/api/1.0/books/{isbn} - show particular book by isbn
-
-Book fields:
-
-* author_id: str
-* id: str
-* isbn: str
-* title: str
-* year: str
-
-To create a database run manage.py using CLI with command "create-db"
-To fill database run manage.py using CLI with command "fill-db"
+* User registration, login management
+* search through site
+* page for each book
+* ability to leave comments
+* API to site DB
+* No ORM
 
 *Fields in book.csv: isbn, title, author, year
+
+SQL queries made for postgresql
