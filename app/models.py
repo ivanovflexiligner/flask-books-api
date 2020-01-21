@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, text
 from flask_login import UserMixin
 from app import login
 
-engine = create_engine("db-url")
+engine = create_engine("")
 
 
 @login.user_loader
@@ -176,8 +176,8 @@ class SubmissionTable:
 
 class GoodreadsApi:
 
-    __api_key = 'hsrQrzy14mUhBX8C2vpNNg'
-    __api_secret = 'B9OLTHoIpH8OThYtAOsOjwkYnqluEeWC5UpryZxa7w8'
+    __api_key = ''
+    __api_secret = ''
     __api_url = "https://www.goodreads.com/"
 
     def get_average_rating_by_isbn(self, isbn):
