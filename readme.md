@@ -22,3 +22,6 @@ You need db. I used a postgres by Heroku, it's free for personal projects.
 Copy it's uri and pass it to models.py to the create_engine function call
 
 
+test test
+
+
